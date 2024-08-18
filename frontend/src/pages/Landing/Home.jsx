@@ -7,9 +7,7 @@ const Home = () => {
     const navigate = useNavigate();
   const { isAuthenticated, user, logout } = useAuth0();
 
-  // const handleRegister =()=>{
-  //   navigate('/register');
-  // }
+ 
   const handleHomework =()=>{
     navigate('/homework');
   
@@ -30,7 +28,7 @@ const Home = () => {
             Log Out
           </button>
           <button onClick={handleHomework}>Check Homework</button>
-          {/* Render other authenticated content here */}
+
         </div>
       )}
     </div>

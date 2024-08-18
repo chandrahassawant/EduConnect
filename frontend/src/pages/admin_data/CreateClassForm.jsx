@@ -8,18 +8,18 @@ import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
 
 export default function CreateClassForm() {
-  const [schools, setSchools] = useState([]); // Local state for schools array
-  const [classes, setClasses] = useState([]); // Local state for classes array
-  const [selectedSchool, setSelectedSchool] = useState(''); // Local state for selected school
-  const [selectedClass, setSelectedClass] = useState(''); // Local state for selected class
-  const [classConfigName, setClassConfigName] = useState(''); // Local state for class name input
-  const navigate = useNavigate(); // Initialize useNavigate hook
+  const [schools, setSchools] = useState([]); 
+  const [classes, setClasses] = useState([]); 
+  const [selectedSchool, setSelectedSchool] = useState(''); 
+  const [selectedClass, setSelectedClass] = useState('');
+  const [classConfigName, setClassConfigName] = useState(''); 
+  const navigate = useNavigate(); 
 
   useEffect(() => {
     const fetchSchools = async () => {
       try {
         const response = await axios.get('http://localhost:3100/api/admin/createclass/getschools');
-        setSchools(response.data); // Set local state for schools
+        setSchools(response.data);
       } catch (error) {
         console.error('Axios error:', error);
       }
@@ -31,7 +31,7 @@ export default function CreateClassForm() {
     const fetchClasses = async () => {
       try {
         const response = await axios.get('http://localhost:3100/api/admin/createclass/getclasses');
-        setClasses(response.data); // Set local state for classes
+        setClasses(response.data); 
       } catch (error) {
         console.error('Axios error:', error);
       }
@@ -40,15 +40,15 @@ export default function CreateClassForm() {
   }, []);
 
   const handleChangeSchool = (event) => {
-    setSelectedSchool(event.target.value); // Update local state for selected school
+    setSelectedSchool(event.target.value); 
   };
 
   const handleChangeClass = (event) => {
-    setSelectedClass(event.target.value); // Update local state for selected class
+    setSelectedClass(event.target.value); 
   };
 
   const handleClassNameChange = (event) => {
-    setClassConfigName(event.target.value); // Update local state for class name input
+    setClassConfigName(event.target.value); 
   };
 
   const handleSubmit = async () => {
@@ -59,10 +59,10 @@ export default function CreateClassForm() {
         classConfigName: classConfigName
       });
       console.log('Post request response:', response.data);
-      navigate('/admin/dashboard'); // Navigate upon successful submission
+      navigate('/admin/dashboard'); 
     } catch (error) {
       console.error('Axios post error:', error);
-      // Handle error appropriately
+    
     }
   };
 

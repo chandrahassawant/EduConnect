@@ -9,7 +9,7 @@ const Navbar = () => {
   const { isAuthenticated, logout, user, isLoading, loginWithRedirect } = useAuth0();
   const navigate = useNavigate();
   
-  // State for Material UI menu
+  
   const [anchorEl, setAnchorEl] = useState(null);
   const open = Boolean(anchorEl);
 

@@ -13,8 +13,7 @@ export default function BasicTextFields() {
       autoComplete="off"
     >
       <TextField id="outlined-basic" variant="outlined"placeholder='Enter the label'/>
-      {/* <TextField id="filled-basic" label="Filled" variant="filled" />
-      <TextField id="standard-basic" label="Standard" variant="standard" /> */}
+      {}
     </Box>
   );
 }

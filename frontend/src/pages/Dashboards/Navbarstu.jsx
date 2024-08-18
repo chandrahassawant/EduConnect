@@ -13,9 +13,10 @@ import Button from '@mui/material/Button';
 import Tooltip from '@mui/material/Tooltip';
 import MenuItem from '@mui/material/MenuItem';
 import AdbIcon from '@mui/icons-material/Adb';
-import { Link } from 'react-router-dom'; // Import Link from react-router-dom
+import { Link } from 'react-router-dom'; 
 import { useNavigate } from 'react-router-dom';
-// import TemporaryDrawer from './TemporaryDrawer';
+import axios from 'axios';
+
 
 
 
@@ -23,6 +24,7 @@ const settings = ['Profile', 'Account'];
 
 function Navbarstu() {
   const { isAuthenticated, logout, user, loginWithRedirect } = useAuth0();
+  
   const navigate = useNavigate();
   const pages = [];
   const handleLogin = async () => {
@@ -37,9 +39,26 @@ function Navbarstu() {
     logout({ returnTo: window.location.origin });
   };
 
-  const handleDashboard = () => {
-    navigate('/teacher/dashboard');
+  const handleDashboard = async () => {
+    try {
+      // Make a request to fetch the user's role
+      const response = await axios.post('http://localhost:3100/api/getrole', { email: user?.email });
+  
+      // Determine navigation based on role_id
+      if (response.data.role_id === 3) {
+        navigate("/student/dashboard");
+      } else if (response.data.role_id === 2) {
+        navigate("/teacher/dashboard");
+      } else if (response.data.role_id === 1) {
+        navigate("/admin/dashboard");
+      } else {
+        console.error("Unknown role_id:", response.data.role_id);
+      }
+    } catch (error) {
+      console.error("Error fetching roles:", error);
+    }
   };
+  
 
   const [anchorElNav, setAnchorElNav] = React.useState(null);
   const [anchorElUser, setAnchorElUser] = React.useState(null);

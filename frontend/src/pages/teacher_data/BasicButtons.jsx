@@ -10,12 +10,12 @@ export default function BasicButtons() {
   const { isAuthenticated, logout, user, isLoading, getAccessTokenSilently } = useAuth0();
   const navigate = useNavigate();
   const [role, setRole] = React.useState('');
-  const [loadingRoles, setLoadingRoles] = React.useState(true); // Add loading state
+  const [loadingRoles, setLoadingRoles] = React.useState(true);
 
   useEffect(() => {
     const fetchRoles = async () => {
       try {
-        if (user?.email) { // Check if user is defined and has email
+        if (user?.email) {
           const response = await axios.post('http://localhost:3100/api/getrole', { email: user.email });
           console.log(response.data); // Log the roles data for debugging
           setRole(response.data);
@@ -23,15 +23,15 @@ export default function BasicButtons() {
       } catch (error) {
         console.error("Error fetching roles:", error);
       } finally {
-        setLoadingRoles(false); // Set loading to false after fetching
+        setLoadingRoles(false);
       }
     };
 
-    fetchRoles(); // Call the function to fetch roles
+    fetchRoles();
   }, [user]);
 
   const handleSubmit = () => {
-    console.log(role); // Log role for debugging
+    console.log(role);
     if (role === 1) {
       navigate("/admin/dashboard");
     } else if (role === 2) {
@@ -42,7 +42,7 @@ export default function BasicButtons() {
   };
 
   if (loadingRoles) {
-    return <div>Loading...</div>; // Optional: Show loading while roles are being fetched
+    return <div>Loading...</div>;
   }
 
   return (

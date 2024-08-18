@@ -10,7 +10,7 @@ import { useNavigate } from "react-router-dom";
 export default function AdminDashboard() {
   const navigate = useNavigate();
 
-  // Example navigation functions for different admin actions
+ 
   const handleManageUsers = () => {
     navigate("/admin/dashboard/manageusers");
   };
@@ -35,7 +35,7 @@ export default function AdminDashboard() {
     navigate("/admin/dashboard/staffdevelopment");
   };
 
-  // Define an array of objects to represent each card's data
+  
   const adminCards = [
     {
       id: 1,

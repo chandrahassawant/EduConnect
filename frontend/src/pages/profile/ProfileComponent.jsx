@@ -62,7 +62,7 @@ const ProfileComponent = () => {
       formData.append('address', address);
       formData.append('city', city);
       formData.append('standard', standard);
-      const token = await getAccessTokenSilently(); // Assuming this is for authorization
+      const token = await getAccessTokenSilently(); 
       console.log(endpoint, 'asdasd')
       const response = await axios.post(endpoint, formData, {
         headers: {
@@ -71,10 +71,9 @@ const ProfileComponent = () => {
         },
       });
 
-      console.log("Registration response:", response.data); // Log response from backend
+      console.log("Registration response:", response.data); 
 
-      // Clear form data after successful submission (excluding email)
-      // Redirect based on role after successful registration
+     
       if (role === 'Teacher') {
         navigate('/teacher/dashboard');
       } else if (role === 'Student') {
@@ -89,9 +88,9 @@ const ProfileComponent = () => {
     }
   };
 
-  // const handleInputChange = (e) => {
-  //   const { name, value } = e.target;
-  // };
+  const handleInputChange = (e) => {
+    const { name, value } = e.target;
+  };
 
   return (
     <Container maxWidth="md" style={{ marginTop: "20px" }}>

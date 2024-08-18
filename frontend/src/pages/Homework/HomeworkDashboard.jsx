@@ -3,9 +3,9 @@ import React, { useState, useEffect } from 'react';
 const HomeworkDashboard = () => {
   const [homeworkData, setHomeworkData] = useState([]);
 
-  // Example homework data (replace with actual data fetching logic)
+  
   const fetchHomeworkData = () => {
-    // Simulated API call or fetching logic
+   
     const dummyData = [
       {
         date: '2024-07-30',
@@ -20,14 +20,14 @@ const HomeworkDashboard = () => {
           { id: 3, title: 'History Essay', description: 'Write a 500-word essay on World War II' }
         ]
       }
-      // Add more data as needed
+   
     ];
 
     setHomeworkData(dummyData);
   };
 
   useEffect(() => {
-    // Fetch homework data on component mount
+    
     fetchHomeworkData();
   }, []);
 

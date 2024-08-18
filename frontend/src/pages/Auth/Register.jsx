@@ -14,7 +14,7 @@ const Register = () => {
     lastname: '',
     contactNumber: '',
     role: '',
-    email: '', // Added email field to formData
+    email: '', 
     school: '',
     address: ''
   });
@@ -23,7 +23,7 @@ const Register = () => {
     if (isAuthenticated) {
       setFormData(prev => ({
         ...prev,
-        email: user.email || "" // Set email in formData if user is authenticated
+        email: user.email || ""
       }));
     }
   }, [isAuthenticated, user]);
@@ -38,7 +38,7 @@ const Register = () => {
         endpoint = 'http://localhost:3100/api/register/student';
       }
 
-      const token = await getAccessTokenSilently(); // Assuming this is for authorization
+      const token = await getAccessTokenSilently();
 
       const response = await axios.post(endpoint, formData, {
         headers: {
@@ -47,20 +47,20 @@ const Register = () => {
         },
       });
 
-      console.log("Registration response:", response.data); // Log response from backend
+      console.log("Registration response:", response.data);
 
-      // Clear form data after successful submission (excluding email)
+     
       setFormData({
         firstname: '',
         lastname: '',
         contactNumber: '',
-        role: formData.role, // Keep selected role
-        email: formData.email, // Keep email
+        role: formData.role, 
+        email: formData.email,
         school:'',
         address: ''
       });
 
-      // Redirect based on role after successful registration
+     
       if (formData.role === 'Teacher') {
         navigate('/teacher');
       } else if (formData.role === 'Student') {

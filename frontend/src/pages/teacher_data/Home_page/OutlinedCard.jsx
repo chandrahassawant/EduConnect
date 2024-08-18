@@ -11,7 +11,6 @@ import CustomizedSelects from "./CustomizedSelects";
 export default function OutlinedCard() {
   const navigate = useNavigate();
   
-  // Example navigation functions for different actions
   const handleAssignNew = () => {
     navigate("/teacher/dashboard/createassignment");
   };
@@ -30,7 +29,6 @@ export default function OutlinedCard() {
     navigate("/teacher/dashboard/gradeassignments");
   };
 
-  // Define an array of objects to represent each card's data
   const cards = [
     { id: 1, title: "Assign New Assignment", buttonText: "Create", onClick: handleAssignNew },
     { id: 2, title: "View Solution", buttonText: "View", onClick: handleViewAssignments },

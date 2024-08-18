@@ -59,10 +59,10 @@ export default function BasicSelect() {
         classConfigName: classConfigName // Corrected to use classConfigName state
       });
       console.log('Post request response:', response.data);
-      navigate('/admin/dashboard'); // Navigate upon successful submission
+      navigate('/admin/dashboard');
     } catch (error) {
       console.error('Axios post error:', error);
-      // Handle error appropriately
+    
     }
   };
 

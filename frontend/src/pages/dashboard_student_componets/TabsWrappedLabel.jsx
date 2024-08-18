@@ -11,7 +11,7 @@ export default function TabsWrappedLabel() {
   const { isAuthenticated, user, isLoading } = useAuth0();
   const [userName, setUserName] = useState('');
 
-  // useEffect to set userName when user is authenticated
+
   useEffect(() => {
     if (isAuthenticated && user) {
       setUserName(user.name);

@@ -7,11 +7,10 @@ import Button from "@mui/material/Button";
 import Typography from "@mui/material/Typography";
 import { useNavigate } from "react-router-dom";
 import DenseTable from "./DenseTable";
-// import Stationery-office from '../pages/student_data_new/stationery-office.jpg';
 export default function StudentDashboard() {
   const navigate = useNavigate();
 
-  // Example navigation functions for different student actions
+
   const handleViewAssignments = () => {
     navigate("/student/dashboard/viewassignments");
   };
@@ -36,7 +35,7 @@ export default function StudentDashboard() {
     navigate("/student/dashboard/exams");
   };
 
-  // Define an array of objects to represent each card's data
+  
   const studentCards = [
     {
       id: 1,
@@ -78,8 +77,8 @@ export default function StudentDashboard() {
         flexWrap: "wrap",
         gap: 2,
         backgroundSize: "cover",
-        height: "100vh", // Changed to '100vh' to cover the viewport height
-        backgroundImage: "url(/images/stationery-office.jpg)", // Update path to imagehere
+        height: "100vh", 
+        backgroundImage: "url(/images/stationery-office.jpg)", 
         backgroundPosition: "center",
         backgroundRepeat: "no-repeat",
       }}

@@ -12,8 +12,6 @@ export default function AdminRoute() {
         <Route path="/admin/dashboard" element={<AdminDashboard />} />
         <Route path="/admin/dashboard/createclass"element={<CreateClassForm />}/>
         <Route path="/admin/dashboard/manageusers" element={<UsersTable />}/>
-
-        {/* <Route path="/teacher/dashboard" element={<TeacherDashboard />}/> */}
       </Routes>
     )
   }

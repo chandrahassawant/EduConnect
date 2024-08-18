@@ -105,7 +105,7 @@ export default function ViewAssignment() {
                         userId,
                         subjectsOptions: subjectsResponse.data
                     }));
-                    // setUserId(response.data[1].user_id);
+                  
                 } else {
                     console.error("Unexpected response format for class options:", response.data);
                 }
@@ -182,7 +182,7 @@ export default function ViewAssignment() {
             try {
                 const formData = new FormData();
                 formData.append('file', file);
-                formData.append('assignmentId', state.selectedAssignment.assignmentId); // Ensure assignmentId is from state
+                formData.append('assignmentId', state.selectedAssignment.assignmentId);
     
                 const response = await axios.post('http://localhost:3100/api/uploadsolution', formData, {
                     headers: { 'Content-Type': 'multipart/form-data' }
@@ -196,8 +196,7 @@ export default function ViewAssignment() {
                     dialogOpen: true
                 }));
     
-                // Directly access the updated state if necessary
-                // Optionally use useRef if you need to access the filePath immediately after state update
+                
                 setFilePath(response.data.filepath);
                 console.log('File path set to:', response.data.filepath);
             } catch (error) {
@@ -214,24 +213,26 @@ export default function ViewAssignment() {
         try {
             const now = new Date();
             const year = now.getFullYear();
-            const day = String(now.getDate()).padStart(2, '0'); // Ensure 2-digit format
-            const month = String(now.getMonth() + 1).padStart(2, '0'); // Months are 0-based, so add 1
-            
-            const formattedDate = `${year}-${day}-${month}`; // Format date as yyyy-dd-mm
+            const month = String(now.getMonth() + 1).padStart(2, '0'); 
+            const day = String(now.getDate()).padStart(2, '0'); 
+    
+           
+            const formattedDate = `${year}-${month}-${day}`;
     
             await axios.post('http://localhost:3100/api/submit-solution', {
                 assignmentId: assignmentId,
                 filePath: filePath,
                 userId: userId,
-                submissionDate: formattedDate, // Attach the formatted date to the payload
-                status_code: statusCode // Ensure this is defined
+                submissionDate: formattedDate, 
+                status_code: statusCode 
             });
-            // Handle success (e.g., show a success message)
+
         } catch (error) {
-            // Handle error (e.g., show an error message)
+
         }
         navigate('/student/dashboard');
     };
+    
     
     
     

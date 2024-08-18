@@ -23,7 +23,7 @@ export default function CustomizedSelects() {
   const [selectedFile, setSelectedFile] = useState(null);
   const [deadline, setDeadline] = useState(null);
   const [successMessage, setSuccessMessage] = useState("");
-  const [subjectId, setSubjectId] = useState(""); // For selected subject ID
+  const [subjectId, setSubjectId] = useState("");
   const [userId, setUserId] = useState("");
   const[schoolId,setSchoolId]=useState("");
   const [statusCode, setStatusCode] = useState(0); 
@@ -75,8 +75,8 @@ export default function CustomizedSelects() {
           (subject) => subject.subject_name
         );
 
-        setSubjects(subjectsData); // Store the full subject objects
-        setSubjectsOptions(subjectNames); // Store just the subject names for the dropdown
+        setSubjects(subjectsData);
+        setSubjectsOptions(subjectNames);
       } catch (error) {
         console.error("Error fetching subjects:", error);
       }
@@ -106,7 +106,7 @@ export default function CustomizedSelects() {
     }
     
     const formattedDate = deadline
-      ? deadline.toISOString().split("T")[0] // Convert to YYYY-MM-DD
+      ? deadline.toISOString().split("T")[0]
       : "";
     
 
@@ -117,9 +117,9 @@ export default function CustomizedSelects() {
       "subject",
       subjects.find((sub) => sub.subject_id === subjectId).subject_name
     ); // Send subject name
-    formData.append("subjectId", subjectId); // Send subject ID
-    formData.append("userId", userId); //
-    formData.append("schoolId", schoolId); //
+    formData.append("subjectId", subjectId);
+    formData.append("userId", userId);
+    formData.append("schoolId", schoolId);
     formData.append("title", title);
     formData.append("discription", discription);
     formData.append("deadline", formattedDate);
@@ -136,7 +136,7 @@ export default function CustomizedSelects() {
         }
       );
       console.log("File uploaded successfully:", response.data);
-      setSuccessMessage("Assignment posted successfully!"); // Set success message
+      setSuccessMessage("Assignment posted successfully!");
     } catch (error) {
       console.error("Error uploading file:", error);
     }

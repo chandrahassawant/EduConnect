@@ -5,16 +5,16 @@ import chan from "../Auth/chan.jpg";
 const Teacherregister = () => {
     const navigate = useNavigate();
 
-    // Initialize state for form data
+  
     const [formData, setFormData] = useState({
         firstname: '',
         lastname: '',
         schoolName: '',
         address: '',
-        MobileNumber: '' // Match this with the backend field name
+        MobileNumber: ''
     });
 
-    // Handle input changes
+   
     const handleInputChange = (e) => {
         const { name, value } = e.target;
         setFormData({
@@ -23,7 +23,7 @@ const Teacherregister = () => {
         });
     };
 
-    // Handle form submission
+
     const handleSubmit = async(e) => {
         e.preventDefault();
         try {
@@ -35,15 +35,15 @@ const Teacherregister = () => {
                 body: JSON.stringify(formData),
             });
             const data = await response.json();
-            console.log(data); // Log response from backend
+            console.log(data);
             setFormData({
                 firstname: '',
                 lastname: '',
                 schoolName: '',
-                MobileNumber: '', // Reset mobile number field
+                MobileNumber: '',
                 address: ''
             });
-            navigate('/'); // Redirect after form submission
+            navigate('/');
         } catch (error) {
             console.error('Error:', error);
         }

@@ -13,7 +13,7 @@ import Button from '@mui/material/Button';
 import Tooltip from '@mui/material/Tooltip';
 import MenuItem from '@mui/material/MenuItem';
 import AdbIcon from '@mui/icons-material/Adb';
-import { Link } from 'react-router-dom'; // Import Link from react-router-dom
+import { Link } from 'react-router-dom'; 
 import { useNavigate } from 'react-router-dom';
 
 function Navbar() {
@@ -49,7 +49,7 @@ function ResponsiveAppBar() {
   };
 
   const handleDashboard = () => {
-    navigate('/student/dashboard'); // Replace with appropriate dashboard route
+    navigate('/student/dashboard'); 
   };
 
   const [anchorElNav, setAnchorElNav] = React.useState(null);

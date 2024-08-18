@@ -15,19 +15,15 @@ export default function TeacherRoute() {
 
       <div>
         
-        {/* <TeacherDashboard /> */}
-        {/* <Border> */}
+       
         <Routes>
       
       <Route path ="/teacher/dashboard" element={<CombinedDashboard />}/>
-        {/* <Route path="/teacher/dashboard/createclass" element={<Assignment_form />}/> */}
+       
         <Route path ="/teacher/dashboard/createassignment" element={<Assignment_form />}/>
         <Route path ="/teacher/dashboard/check-solutions" element={<Checksolution />}/>
-      
-        {/* <Route path="/teacher/dashboard" element={<TeacherDashboard />}/> */}
         
       </Routes>
-      {/* </Border>       */}
       </div>
       
     )

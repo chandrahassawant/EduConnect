@@ -7,14 +7,14 @@ const Box = () => {
       style={{
         height: "800px",
         width: "1400px",
-        margin: "16px 30px 0 0", // Equivalent to my={4} and marginRight={30}
+        margin: "16px 30px 0 0",
         display: "flex",
         flexDirection: "column",
         alignItems: "center",
         textAlign: "center",
-        marginTop: "-0.5rem", // Equivalent to marginTop={-0.5}
-        gap: "16px", // Equivalent to gap={2}
-        padding: "16px", // Equivalent to p={2}
+        marginTop: "-0.5rem",
+        gap: "16px",
+        padding: "16px",
         border: "8px solid orange",
         borderColor: "gold",
         minWidth: "120px",
